@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>SLIIT Microservices Lab</title></head>
+<body>
+    <h1>Welcome to the Frontend</h1>
+    <div id="status">Connecting to gateway...</div>
+    <script>
+        fetch('/api/health').then(res => res.json())
+          .then(data => document.getElementById('status').innerText = 'Gateway Status: ' + data.status)
+          .catch(() => document.getElementById('status').innerText = 'Gateway Offline');
+    </script>
+</body>
+</html>
